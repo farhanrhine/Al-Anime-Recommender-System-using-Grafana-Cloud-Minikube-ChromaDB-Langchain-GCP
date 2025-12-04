@@ -1,0 +1,302 @@
+2025-12-04 21:10:54,705 - INFO - __main__ - Starting the embedding build pipeline...
+2025-12-04 21:10:54,705 - INFO - __main__ - Loading and processing raw data...
+2025-12-04 21:10:54,705 - INFO - recommender_system.data_loader - Loading dataset from: data/anime_with_synopsis.csv
+2025-12-04 21:10:54,851 - INFO - recommender_system.data_loader - CSV loaded successfully. Validating columns...
+2025-12-04 21:10:54,851 - INFO - recommender_system.data_loader - Columns validated. Creating combined_info column...
+2025-12-04 21:10:54,902 - INFO - recommender_system.data_loader - Processed CSV saved to: data/anime_processed.csv
+2025-12-04 21:10:54,902 - INFO - __main__ - Processed CSV saved at: data/anime_processed.csv
+2025-12-04 21:10:54,902 - INFO - __main__ - Building vector store...
+2025-12-04 21:10:54,906 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:10:54,906 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:11:00,400 - INFO - recommender_system.vector_store - Loading CSV for vector store: data/anime_processed.csv
+2025-12-04 21:11:00,406 - INFO - recommender_system.vector_store - Loaded 269 documents. Splitting text...
+2025-12-04 21:11:00,411 - INFO - recommender_system.vector_store - Created 269 text chunks. Building ChromaDB...
+2025-12-04 21:11:00,883 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:11:23,303 - INFO - recommender_system.vector_store - Vector store saved at: chroma_db
+2025-12-04 21:11:23,304 - INFO - __main__ - Vector store created at: chroma_db
+2025-12-04 21:11:23,305 - INFO - __main__ - Embedding build pipeline completed successfully!
+2025-12-04 21:11:58,579 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:11:58,579 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:11:58,579 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:12:03,726 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:12:04,671 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:12:04,963 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:12:04,963 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:12:05,597 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:13:10,960 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: can you give me any romantic anime recommendations?
+2025-12-04 21:13:12,090 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:13:12,118 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:26:48,402 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:26:48,408 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:26:48,409 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:26:56,703 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:26:58,706 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:26:59,404 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:26:59,405 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:27:00,702 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:27:18,071 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:27:18,071 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:27:18,071 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:27:18,071 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:27:22,619 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:27:23,076 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:27:23,200 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:27:23,200 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:27:23,377 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:27:23,379 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:27:45,190 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:28:02,672 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:28:02,672 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:28:02,674 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:28:02,674 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:28:07,376 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:28:07,766 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:28:07,871 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:28:07,871 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:28:08,064 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:28:08,064 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:28:31,732 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:28:31,733 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:28:31,733 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:28:31,733 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:28:36,294 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:28:36,796 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:28:36,984 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:28:36,984 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:28:37,290 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:28:37,290 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:28:53,110 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:28:53,111 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:28:53,113 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:28:53,113 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:28:57,671 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:28:58,168 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:28:58,272 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:28:58,272 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:28:58,464 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:28:58,464 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:29:09,274 - INFO - recommender_system.api.fastapi_app - GET /docs - Status: 200 - Duration: 0.012s
+2025-12-04 21:29:10,416 - INFO - recommender_system.api.fastapi_app - GET /openapi.json - Status: 200 - Duration: 0.087s
+2025-12-04 21:29:36,433 - INFO - recommender_system.api.fastapi_app - GET / - Status: 200 - Duration: 0.002s
+2025-12-04 21:29:43,856 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.003s
+2025-12-04 21:30:01,538 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 422 - Duration: 0.000s
+2025-12-04 21:32:37,819 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:33:03,102 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:33:03,104 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:33:03,106 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:33:03,107 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:33:25,788 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:33:26,299 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:33:26,439 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:33:26,440 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:33:27,028 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:33:27,029 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:38:22,506 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:38:22,511 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:38:22,514 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:38:22,514 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:38:27,705 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:38:28,393 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:38:28,636 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:38:28,637 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:38:29,038 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:38:29,038 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:38:59,243 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.009s
+2025-12-04 21:39:40,676 - INFO - recommender_system.api.fastapi_app - GET / - Status: 200 - Duration: 0.008s
+2025-12-04 21:39:42,230 - INFO - recommender_system.api.fastapi_app - GET /favicon.ico - Status: 404 - Duration: 0.004s
+2025-12-04 21:39:52,495 - INFO - recommender_system.api.fastapi_app - GET / - Status: 200 - Duration: 0.003s
+2025-12-04 21:39:56,017 - INFO - recommender_system.api.fastapi_app - GET /docs - Status: 200 - Duration: 0.003s
+2025-12-04 21:39:56,511 - INFO - recommender_system.api.fastapi_app - GET /openapi.json - Status: 200 - Duration: 0.042s
+2025-12-04 21:40:08,265 - INFO - recommender_system.api.fastapi_app - GET / - Status: 200 - Duration: 0.001s
+2025-12-04 21:40:13,173 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:40:13,173 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:40:13,177 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:40:13,179 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:40:16,121 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:40:18,529 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:40:20,015 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:40:20,432 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:40:20,433 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:40:21,229 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:40:21,233 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:40:57,896 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: give me any romantic anime name?
+2025-12-04 21:40:59,100 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:40:59,115 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:40:59,117 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 200 - Duration: 1.226s
+2025-12-04 21:44:17,308 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:44:17,451 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:45:02,165 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:45:02,168 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:45:02,170 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:45:02,171 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:45:02,172 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:45:02,174 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:45:02,176 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:45:02,177 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:45:07,793 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:45:07,956 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:45:09,362 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:45:09,363 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:45:09,911 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:45:09,912 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:45:09,913 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:45:09,914 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:45:10,613 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:45:10,614 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:45:10,623 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:45:10,624 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:45:49,017 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.018s
+2025-12-04 21:46:12,001 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.000s
+2025-12-04 21:46:12,237 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:46:14,286 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.000s
+2025-12-04 21:46:16,330 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: give me any romantic anime suggestions?
+2025-12-04 21:46:18,132 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:46:18,218 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:46:18,221 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 200 - Duration: 1.897s
+2025-12-04 21:46:44,439 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:46:53,301 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.005s
+2025-12-04 21:46:58,121 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:47:02,312 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.000s
+2025-12-04 21:47:03,638 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:47:03,843 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.000s
+2025-12-04 21:48:58,631 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:48:58,783 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:49:57,699 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:49:57,702 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:49:57,702 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:49:57,703 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:49:57,710 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:49:57,711 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:49:57,711 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:50:03,636 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:50:04,025 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:50:05,303 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:50:05,565 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:50:05,847 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:50:05,848 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:50:05,910 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:50:05,911 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:50:06,685 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:50:06,688 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:50:06,690 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:50:06,697 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:50:41,499 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:50:41,499 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:50:41,503 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:50:41,504 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:50:46,840 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:50:47,876 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:50:48,108 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:50:48,108 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:50:48,557 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:50:48,562 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:50:59,833 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.012s
+2025-12-04 21:51:08,063 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.001s
+2025-12-04 21:51:09,124 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:51:11,233 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.004s
+2025-12-04 21:51:13,321 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: Action anime with overpowered MC
+2025-12-04 21:51:15,398 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:51:15,490 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:51:15,497 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 200 - Duration: 2.198s
+2025-12-04 21:51:38,460 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.003s
+2025-12-04 21:51:38,563 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.003s
+2025-12-04 21:51:40,619 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: give me any romantic anime ?
+2025-12-04 21:51:41,452 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:51:41,456 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:51:41,456 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 200 - Duration: 0.843s
+2025-12-04 21:52:51,102 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:52:51,203 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:53:35,409 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:53:35,410 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:53:35,412 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:53:35,413 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:53:35,415 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:53:35,415 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:53:35,416 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:53:35,417 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:53:40,649 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:53:40,663 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:53:41,631 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:53:41,631 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:53:41,982 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:53:41,983 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:53:41,988 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:53:41,988 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:53:42,702 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:53:42,703 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:53:42,710 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:53:42,711 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:54:21,200 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:54:21,200 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:54:21,203 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:54:21,203 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:54:26,600 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:54:27,435 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:54:27,698 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:54:27,699 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:54:28,271 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:54:28,271 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:55:02,545 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.016s
+2025-12-04 21:55:09,823 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.000s
+2025-12-04 21:55:09,964 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.002s
+2025-12-04 21:55:12,022 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: give me any romantic anime ?
+2025-12-04 21:55:13,357 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:55:13,397 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:55:13,398 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 200 - Duration: 1.385s
+2025-12-04 21:55:30,418 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.001s
+2025-12-04 21:55:30,633 - INFO - recommender_system.api.fastapi_app - GET /health - Status: 200 - Duration: 0.001s
+2025-12-04 21:55:32,676 - INFO - recommender_system.pipeline.recommend_pipeline - Received user query: who are you?
+2025-12-04 21:55:33,725 - INFO - httpx - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 21:55:33,731 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation generated successfully.
+2025-12-04 21:55:33,733 - INFO - recommender_system.api.fastapi_app - POST /api/v1/recommend - Status: 200 - Duration: 1.062s
+2025-12-04 21:56:23,805 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:56:23,859 - INFO - recommender_system.api.fastapi_app - Shutting down Anime Recommender API...
+2025-12-04 21:57:11,251 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:57:11,256 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:57:11,256 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:57:11,260 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:57:11,262 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:57:11,263 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:57:11,263 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:57:16,401 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:57:16,711 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:57:17,712 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:57:18,065 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:57:18,204 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:57:18,204 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:57:18,432 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:57:18,437 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:57:19,079 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:57:19,080 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:57:19,185 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:57:19,187 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:57:50,613 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:57:50,614 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:57:50,618 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:57:50,618 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:57:50,620 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:57:50,620 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:57:50,625 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:57:50,625 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:57:56,544 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:57:56,688 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:57:59,249 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:57:59,250 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:58:00,012 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:58:00,014 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:58:00,014 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:58:00,014 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:58:01,055 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:58:01,056 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:58:01,063 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:58:01,066 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!
+2025-12-04 21:58:51,989 - INFO - recommender_system.api.fastapi_app - Starting up: Loading recommendation pipeline...
+2025-12-04 21:58:51,990 - INFO - recommender_system.pipeline.recommend_pipeline - Initializing Recommendation Pipeline...
+2025-12-04 21:58:51,994 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: cpu
+2025-12-04 21:58:51,997 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-04 21:58:59,119 - INFO - recommender_system.vector_store - Loading vector store from: chroma_db
+2025-12-04 21:59:03,127 - INFO - chromadb.telemetry.product.posthog - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-04 21:59:03,900 - INFO - recommender_system.vector_store - Vector store loaded successfully
+2025-12-04 21:59:03,901 - INFO - recommender_system.recommender - Initializing Anime Recommender (docs-aligned)...
+2025-12-04 21:59:05,222 - INFO - recommender_system.pipeline.recommend_pipeline - Recommendation Pipeline initialized successfully.
+2025-12-04 21:59:05,224 - INFO - recommender_system.api.fastapi_app - Pipeline loaded successfully!

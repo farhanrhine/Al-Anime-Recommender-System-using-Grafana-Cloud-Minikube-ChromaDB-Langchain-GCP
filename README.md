@@ -73,7 +73,7 @@ al_anime_recommender_system/
 * Stores secrets such as:
 
   * `GROQ_API_KEY`
-  * `HUGGING_FACE_HUB_API_TOKEN`
+  * `HUGGINGFACEHUB_API_TOKEN`
 * Never push this to GitHub.
 
 ### **`.gitignore`**
