@@ -9,10 +9,12 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # Copy project files
+
+# Copy only dependency files first for Docker caching
 COPY pyproject.toml uv.lock ./
+
+# Now copy the application code (lightweight)
 COPY src ./src
-COPY data ./data
-COPY chroma_db ./chroma_db
 
 # Install dependencies using UV (super fast)
 RUN uv sync --frozen
@@ -22,3 +24,8 @@ EXPOSE 8000
 
 # Run FastAPI using uvicorn (no reload in Docker)
 CMD ["uv", "run", "uvicorn", "recommender_system.api.fastapi_app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+
+
+

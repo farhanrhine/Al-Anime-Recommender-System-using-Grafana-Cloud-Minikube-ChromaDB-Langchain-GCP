@@ -3,11 +3,10 @@ from dotenv import load_dotenv
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders.csv_loader import CSVLoader
-from langchain_huggingface import HuggingFaceEmbeddings
-
 from recommender_system.utils.logger import get_logger
 from recommender_system.utils.custom_exception import CustomException
-from recommender_system.config.settings import EMBEDDING_MODEL
+from recommender_system.config.settings import EMBEDDING_MODEL, HF_TOKEN
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
 
 
 
@@ -22,7 +21,10 @@ class VectorStoreBuilder:
     def __init__(self, csv_path: str = None, persist_dir: str = "chroma_db"):
         self.csv_path = csv_path
         self.persist_dir = persist_dir
-        self.embedding = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+        self.embedding = HuggingFaceEndpointEmbeddings(
+            model=EMBEDDING_MODEL,
+            huggingfacehub_api_token=HF_TOKEN
+        )
 
     def build_and_save_vectorstore(self) -> str:
         """

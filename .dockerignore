@@ -34,11 +34,17 @@ pytest_cache/
 # Documentation
 *.md
 !README.md
-note.md 
 
 # Lock files (keep uv.lock for reproducible builds)
 poetry.lock
 
-# Docker directory itself
-docker/
-kubernetes/
+create_structure.py
+
+
+data/
+chroma_db/
+__pycache__/
+*.pyc
+env/
+venv/
+.git/
