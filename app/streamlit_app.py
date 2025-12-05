@@ -29,11 +29,10 @@ def check_api_health() -> bool:
     """Check if the FastAPI backend is healthy."""
     try:
         response = requests.get(f"{API_BASE_URL}/health", timeout=5)
-        if response.status_code == 200:
-            data = response.json()
-            return data.get("pipeline_ready", False)
-        return False
-    except:
+        # Just check if API responds with 200
+        return response.status_code == 200
+    except Exception as e:
+        print(f"Health check failed: {e}")
         return False
 
 
@@ -41,7 +40,7 @@ def get_recommendation(query: str) -> dict:
     """Get anime recommendation from the API."""
     try:
         response = requests.post(
-            f"{API_BASE_URL}/api/v1/recommend",
+            f"{API_BASE_URL}/recommend",  # Changed from /api/v1/recommend
             json={"query": query},
             timeout=60,
         )

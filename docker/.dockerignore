@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv/
+ENV/
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Local env
+.env
+.env.local
+
+# Test files
+tests/
+pytest_cache/
+.coverage
+
+# Documentation
+*.md
+!README.md
+
+# Lock files (keep uv.lock for reproducible builds)
+poetry.lock

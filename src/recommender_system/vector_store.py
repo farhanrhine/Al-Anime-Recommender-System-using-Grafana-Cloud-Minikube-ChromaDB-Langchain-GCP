@@ -9,6 +9,8 @@ from recommender_system.utils.logger import get_logger
 from recommender_system.utils.custom_exception import CustomException
 from recommender_system.config.settings import EMBEDDING_MODEL
 
+
+
 logger = get_logger(__name__)
 load_dotenv()
 
