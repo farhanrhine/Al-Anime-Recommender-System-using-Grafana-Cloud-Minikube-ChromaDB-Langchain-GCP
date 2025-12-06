@@ -39,6 +39,7 @@ data/*.csv
 
 dockernote.md
 kubernates.md
+how_to_run.md
 
 kubernetes/deployment.yaml
 kubernetes/service.yaml
@@ -47,5 +48,3 @@ kubernetes/namespace.yaml
 kubernetes/pvc.yaml
 kubernetes/secret.yaml
 roadmap.md
-
-
