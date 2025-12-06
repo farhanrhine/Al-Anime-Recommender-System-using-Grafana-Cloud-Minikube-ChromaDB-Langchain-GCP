@@ -40,7 +40,12 @@ data/*.csv
 dockernote.md
 kubernates.md
 
-kubernetes/
+kubernetes/deployment.yaml
+kubernetes/service.yaml
+kubernetes/ingress.yaml
+kubernetes/namespace.yaml
+kubernetes/pvc.yaml
+kubernetes/secret.yaml
 roadmap.md
 
 
