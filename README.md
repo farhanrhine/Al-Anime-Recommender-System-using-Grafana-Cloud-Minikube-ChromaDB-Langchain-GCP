@@ -11,7 +11,6 @@ RAG-powered Anime Recommendation System using **LangChain**, **ChromaDB**, **Gro
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)
 ![GCP](https://img.shields.io/badge/Google_Cloud-GCP-4285F4?logo=googlecloud&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-GKE-326CE5?logo=kubernetes&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
 
 ![LangSmith](https://img.shields.io/badge/LangSmith-Tracing-blue)
 
@@ -28,7 +27,7 @@ RAG-powered Anime Recommendation System using **LangChain**, **ChromaDB**, **Gro
 | Frontend | Streamlit |
 | Package Manager | UV |
 | Container | Docker |
-| Deployment | GKE Autopilot + GitHub Actions CI/CD |
+| Deployment | GKE Autopilot (via Cloud Shell) |
 | Observability | LangSmith |
 
 ---
@@ -204,16 +203,42 @@ kubectl get svc anime-service
 
 ---
 
-## 🔄 CI/CD
+## ☁️ Manual Deployment (GCP Cloud Shell)
 
-GitHub Actions auto-deploys to GKE on push to `main`.
+This project is deployed manually using GCP Cloud Shell:
 
-**Required GitHub Secrets:**
-- `GCP_SA_KEY` - GCP service account JSON
-- `GCP_PROJECT` - Project ID
-- `GKE_CLUSTER_NAME` - `anime-gke`
-- `GKE_CLUSTER_REGION` - `us-central1`
-- `ANIME_SECRETS_GROQ`, `ANIME_SECRETS_HF`, `LANGCHAIN_SMITH_KEY`
+### 1. Clone Repository in Cloud Shell
+
+```bash
+git clone https://github.com/farhanrhine/Al-Anime-Recommender-using-Grafana-Cloud-Minikube-ChromaDB-Langchain-GCP.git
+cd Al-Anime-Recommender-using-Grafana-Cloud-Minikube-ChromaDB-Langchain-GCP
+```
+
+### 2. Connect to GKE Cluster
+
+```bash
+gcloud container clusters get-credentials <YOUR_CLUSTER_NAME> --region <YOUR_REGION> --project <YOUR_PROJECT_ID>
+```
+
+### 3. Create Secrets & Deploy
+
+```bash
+kubectl create secret generic anime-secrets \
+  --from-literal=GROQ_API_KEY=xxx \
+  --from-literal=HUGGINGFACEHUB_API_TOKEN=xxx \
+  --from-literal=LANGCHAIN_API_KEY=xxx \
+  --from-literal=LANGCHAIN_TRACING_V2=true \
+  --from-literal=LANGCHAIN_ENDPOINT=https://api.smith.langchain.com \
+  --from-literal=LANGCHAIN_PROJECT=anime-recommender
+
+kubectl apply -f kubernetes/
+```
+
+### 4. Get External IP
+
+```bash
+kubectl get svc anime-service
+```
 
 ---
 
